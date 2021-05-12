@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const StyledMenu = styled.div`
+  z-index: 1;
   font-weight: 700;
   top: 4em;
   position: absolute;
@@ -50,6 +51,7 @@ const StyledLogin = styled.div`
     }
   }
   button {
+    font-family: 'Poppins', sans-serif;
     font-weight: 700;
     font-size: 1rem;
     color: white;
