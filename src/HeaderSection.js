@@ -59,7 +59,7 @@ const HeaderSection = () => {
   return (
     <StyledSection>
       <StyledImageContainer>
-        {/* If I import the image through sprite it does not load correctly, double checked the svg source, remade the sheet, same result. */}
+        {/* If the image is imported from sprite it does not load correctly (gradients disappear), double checked the svg source, remade the sheet, same result.*/}
         {/* <svg className='working'>
         <use href={sprite + '#illustration-working'} />
       </svg> */}
