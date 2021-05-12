@@ -5,6 +5,7 @@ import Logo from './Navbar Components/Logo'
 import MobileMenu from './Navbar Components/MobileMenu'
 
 const StyledNav = styled.nav`
+  padding: 1em;
   position: relative;
   display: flex;
   justify-content: space-between;

@@ -3,25 +3,26 @@ import styled from 'styled-components'
 import formBackground from './images/bg-shorten-mobile.svg'
 
 const StyledFormContainer = styled.section`
+  padding: 1em;
+  width: 90%;
+  margin: 0 auto;
   position: relative;
-  top: 5em;
+  top: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.5em;
   background-color: hsl(257, 27%, 26%);
   background-image: url(${formBackground});
   background-repeat: no-repeat;
-  background-position: center right;
-  background-size: contain;
-  border-radius: 1em;
+  background-position: top right;
+  border-radius: 0.8em;
 `
 
 const StyledURLInputForm = styled.form`
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  width: 90%;
+  width: 100%;
   input[type='text'] {
     width: 100%;
     font-family: 'Poppins', sans-serif;
@@ -29,7 +30,7 @@ const StyledURLInputForm = styled.form`
     font-weight: 500;
     padding: 0.4em;
     border-radius: 0.4em;
-    margin: 0.5em 0;
+    margin: 0 0 0.5em 0;
     padding: 0.8em;
     border: none;
     ::placeholder {
@@ -45,7 +46,7 @@ const StyledURLInputForm = styled.form`
     border: none;
     background-color: hsl(180, 66%, 49%);
     padding: 0.8em;
-    margin: 0.5em 0;
+    margin: 0.5em 0 0 0;
     border-radius: 0.4em;
     &:hover {
       cursor: pointer;

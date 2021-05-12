@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import working from './images/illustration-working.svg'
 
 const StyledSection = styled.section`
+  padding: 1em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,7 +44,7 @@ const StyledBodyContainer = styled.div`
     font-weight: 700;
     font-size: 1rem;
     color: white;
-    padding: 1em 3em;
+    padding: 0.8em 3em;
     margin: 2em auto;
     border: none;
     border-radius: 2em;

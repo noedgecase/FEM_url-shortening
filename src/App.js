@@ -3,9 +3,11 @@ import styled from 'styled-components'
 import Navbar from './Navbar'
 import HeaderSection from './HeaderSection'
 import URLInputBox from './URLInputBox'
+import AdvanedSection from './AdvancedSection'
+import Footer from './Footer'
 
 const StyledApp = styled.div`
-  padding: 1em;
+  padding: 0;
 `
 
 const App = () => {
@@ -14,6 +16,8 @@ const App = () => {
       <Navbar />
       <HeaderSection />
       <URLInputBox />
+      <AdvanedSection />
+      <Footer />
     </StyledApp>
   )
 }

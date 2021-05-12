@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const StyledMenu = styled.div`
+  margin: 1em auto;
   z-index: 1;
   font-weight: 700;
   top: 4em;
@@ -10,7 +11,7 @@ const StyledMenu = styled.div`
   flex-direction: column;
   background-color: hsl(257, 27%, 26%);
   border-radius: 1em;
-  width: 100%;
+  width: 90%;
   padding: 0 0 2em 0;
   user-select: none;
   opacity: ${({ open }) => (open ? '1' : '0')};
