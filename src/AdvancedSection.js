@@ -11,7 +11,7 @@ const StyledAdvancedSection = styled.section`
 
 const StyledTopSection = styled.div`
   width: 100%;
-  h1 {
+  h2 {
     color: hsl(257, 27%, 26%);
     text-align: center;
     font-size: 1.6rem;
@@ -38,7 +38,7 @@ const StyledBottomSection = styled.div`
     background-color: white;
     width: 90%auto;
     margin: 5em auto 0 auto;
-    h1 {
+    h2 {
       color: hsl(257, 27%, 26%);
       text-align: center;
       font-size: 1.3rem;
@@ -81,7 +81,7 @@ const AdvancedSection = () => {
   return (
     <StyledAdvancedSection>
       <StyledTopSection>
-        <h1>Advanced Statistics</h1>
+        <h2>Advanced Statistics</h2>
         <p>
           Track how your links are performing across the web with our advanced
           statistics dashboard.
@@ -96,7 +96,7 @@ const AdvancedSection = () => {
               <use href={sprite + '#icon-brand-recognition'} />
             </svg>
           </div>
-          <h1>Brand Recognition</h1>
+          <h2>Brand Recognition</h2>
           <p>
             Boost your brand recognition with each click. Generic links don’t
             mean a thing. Branded links help instil confidence in your content.
@@ -108,7 +108,7 @@ const AdvancedSection = () => {
               <use href={sprite + '#icon-detailed-records'} />
             </svg>
           </div>
-          <h1>Detailed Records</h1>
+          <h2>Detailed Records</h2>
           <p>
             Gain insights into who is clicking your links. Knowing when and
             where people engage with your content helps inform better decisions.
@@ -120,7 +120,7 @@ const AdvancedSection = () => {
               <use href={sprite + '#icon-fully-customizable'} />
             </svg>
           </div>
-          <h1>Fully Customizable</h1>
+          <h2>Fully Customizable</h2>
           <p>
             Improve brand awareness and content discoverability through
             customizable links, supercharging audience engagement.
