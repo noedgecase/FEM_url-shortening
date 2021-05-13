@@ -10,7 +10,8 @@ const StyledAdvancedSection = styled.section`
 `
 
 const StyledTopSection = styled.div`
-  width: 100%;
+  width: clamp(10em, 90%, 30em);
+  margin: 0 auto;
   h2 {
     color: hsl(257, 27%, 26%);
     text-align: center;
@@ -23,10 +24,17 @@ const StyledTopSection = styled.div`
     text-align: center;
     font-weight: 500;
   }
+  @media screen and (min-width: 960px) {
+    width: clamp(10em, 90%, 50em);
+    h2 {
+      margin: 0.5em auto;
+      font-size: 2rem;
+    }
+  }
 `
 const StyledBottomSection = styled.div`
   position: relative;
-  width: 90%;
+  width: clamp(10em, 90%, 30em);
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -36,7 +44,7 @@ const StyledBottomSection = styled.div`
     position: relative;
     border-radius: 0.4em;
     background-color: white;
-    width: 90%auto;
+    width: 90%;
     margin: 5em auto 0 auto;
     h2 {
       color: hsl(257, 27%, 26%);
@@ -68,6 +76,29 @@ const StyledBottomSection = styled.div`
       width: 50%;
     }
   }
+  @media screen and (min-width: 960px) {
+    width: clamp(50em, 80%, 80em);
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+    .card {
+      margin: 5em 1vw;
+      width: clamp(10em, 50%, 25em);
+      min-height: 17em;
+      padding: 1vw;
+      &:nth-of-type(4) {
+        top: 2em;
+      }
+      &:nth-of-type(5) {
+        top: 4em;
+      }
+      .card__icon--frame {
+        position: relative;
+        top: -2.5em;
+        right: 30%;
+      }
+    }
+  }
 `
 const StyledBackgroundLine = styled.div`
   position: absolute;
@@ -75,6 +106,11 @@ const StyledBackgroundLine = styled.div`
   height: 80%;
   width: 10px;
   background-color: hsl(180, 66%, 49%);
+  @media screen and (min-width: 960px) {
+    top: 50%;
+    width: 80%;
+    height: 10px;
+  }
 `
 
 const AdvancedSection = () => {

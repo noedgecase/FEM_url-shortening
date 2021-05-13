@@ -6,7 +6,9 @@ const StyledBurger = styled.div`
   width: 20px;
   position: relative;
   cursor: pointer;
-
+  @media screen and (min-width: 780px) {
+    display: none;
+  }
   span {
     display: block;
     position: absolute;

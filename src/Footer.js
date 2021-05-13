@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import boostBackground from './images/bg-boost-mobile.svg'
+import mobileBoostBackground from './images/bg-boost-mobile.svg'
+import desktopBoostBackground from './images/bg-boost-desktop.svg'
 import sprite from './sprite.svg'
 
 const StyledFooter = styled.footer`
@@ -12,7 +13,7 @@ const StyledTopSide = styled.div`
   flex-direction: column;
   padding: 4em 0;
   background-color: hsl(257, 27%, 26%);
-  background-image: url(${boostBackground});
+  background-image: url(${mobileBoostBackground});
   background-repeat: no-repeat;
   background-position: center right;
 
@@ -32,9 +33,23 @@ const StyledTopSide = styled.div`
     border: none;
     border-radius: 2em;
     background-color: hsl(180, 66%, 49%);
+    transition: transform 300ms;
     &:hover {
       cursor: pointer;
       background-color: hsl(180, 72%, 80%);
+      transform: scale(1.05, 1.05);
+      transition: transform 100ms;
+    }
+  }
+  @media screen and (min-width: 780px) {
+    background-image: url(${desktopBoostBackground});
+    background-position: center;
+    background-size: cover;
+    padding: 2em;
+    h2 {
+      text-align: center;
+      color: white;
+      font-size: 2.3rem;
     }
   }
 `
@@ -45,17 +60,19 @@ const StyledBottomSide = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: hsl(260, 8%, 14%);
+
   .logo {
     width: 100px;
-    height: 100px;
+    height: 30px;
     fill: white !important;
+    margin: 1em auto;
   }
   .links-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     .section {
-      margin: 1em auto;
+      margin: 1em 2em;
       h3 {
         text-align: center;
         color: white;
@@ -89,6 +106,35 @@ const StyledBottomSide = styled.div`
       &:hover {
         fill: hsl(180, 66%, 49%);
       }
+    }
+  }
+  @media screen and (min-width: 560px) {
+    .links-container {
+      flex-direction: row;
+    }
+  }
+  @media screen and (min-width: 960px) {
+    padding: 5em 2vw;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: flex-start;
+    .logo {
+      flex: 1;
+    }
+    .links-container {
+      flex: 2;
+      justify-content: center;
+      flex-direction: row;
+      align-items: flex-start;
+      .section {
+        margin: 0 2vw;
+        min-width: 130px;
+      }
+    }
+    .socials-container {
+      flex: 1;
+      margin: 0 auto;
+      justify-content: center;
     }
   }
 `

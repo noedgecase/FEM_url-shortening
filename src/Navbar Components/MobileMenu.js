@@ -2,20 +2,21 @@ import React from 'react'
 import styled from 'styled-components'
 
 const StyledMenu = styled.div`
-  margin: 1em auto;
   z-index: 1;
   font-weight: 700;
   top: 4em;
+  left: 50%;
   position: absolute;
   display: flex;
   flex-direction: column;
   background-color: hsl(257, 27%, 26%);
   border-radius: 1em;
-  width: 90%;
+  width: clamp(10em, 90%, 25em);
   padding: 0 0 2em 0;
   user-select: none;
   opacity: ${({ open }) => (open ? '1' : '0')};
-  transform: ${({ open }) => (open ? 'translateY(0px)' : 'translateY(-50px)')};
+  transform: ${({ open }) => (open ? 'translateY(0px)' : 'translateY(-50px)')}
+    translateX(-50%);
   pointer-events: ${({ open }) => (open ? 'all' : 'none')};
   transition: opacity 300ms 150ms ease-out, transform 400ms ease-in-out;
   ul {
@@ -30,6 +31,9 @@ const StyledMenu = styled.div`
         color: hsl(0, 0%, 75%);
       }
     }
+  }
+  @media screen and (min-width: 780px) {
+    display: none;
   }
 `
 
@@ -61,7 +65,7 @@ const StyledLogin = styled.div`
     border: none;
     border-radius: 2em;
     background-color: hsl(180, 66%, 49%);
-    width: 80%;
+    width: clamp(5em, 80%, 10em);
     &:hover {
       cursor: pointer;
       background-color: hsl(180, 72%, 80%);
