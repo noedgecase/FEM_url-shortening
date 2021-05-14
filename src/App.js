@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import Navbar from './Navbar'
-import HeaderSection from './HeaderSection'
-import URLInputBox from './URLInputBox'
-import AdvanedSection from './AdvancedSection'
-import Footer from './Footer'
+import Navbar from './components/Navbar/Navbar'
+import HeaderSection from './components/Sections/HeaderSection'
+import URLInputBox from './components/Sections/URLInputBox'
+import AdvanedSection from './components/Sections/AdvancedSection'
+import Footer from './components/Footer/Footer'
 
 const StyledApp = styled.div`
   padding: 0;

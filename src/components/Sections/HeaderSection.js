@@ -1,19 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
 // import sprite from './sprite.svg'
-import working from './images/illustration-working.svg'
+import working from '../../images/illustration-working.svg'
 
 const StyledSection = styled.section`
   position: relative;
   height: clamp(35em, 70vw, 50em);
-  width: clamp(20em, 100%, 140em);
+  width: clamp(20em, 100%, 1500px);
   margin: 0 auto;
   padding: 1em;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
-  overflow: hidden;
   @media screen and (min-width: 520px) {
     height: clamp(20em, 50vw, 40em);
   }
@@ -51,7 +50,7 @@ const StyledBodyContainer = styled.div`
     font-weight: 700;
     line-height: 1.2;
     text-align: center;
-    font-size: clamp(2.3rem, 6vw, 5rem);
+    font-size: clamp(2.3rem, 6vw, 4.5rem);
     margin: 1em auto 0.5em auto;
     width: 15ch;
   }
@@ -70,7 +69,7 @@ const StyledBodyContainer = styled.div`
     font-size: 1rem;
     color: white;
     padding: 0.8em 3em;
-    margin: 2em auto 2em auto;
+    margin: 2em auto;
     border: none;
     border-radius: 2em;
     background-color: hsl(180, 66%, 49%);
@@ -84,7 +83,7 @@ const StyledBodyContainer = styled.div`
   }
 
   @media screen and (min-width: 520px) {
-    padding: 0 5vw;
+    padding: 0 4.5vw;
     width: 50%;
     top: 4vw;
     left: 0;
@@ -98,8 +97,7 @@ const StyledBodyContainer = styled.div`
       width: clamp(30ch, 80%, 80ch);
     }
     button {
-      width: 14em;
-      margin: 0;
+      margin: 0 auto 0 0;
     }
   }
 `

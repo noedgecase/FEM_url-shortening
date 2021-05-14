@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import mobileBoostBackground from './images/bg-boost-mobile.svg'
-import desktopBoostBackground from './images/bg-boost-desktop.svg'
-import sprite from './sprite.svg'
+import mobileBoostBackground from '../../images/bg-boost-mobile.svg'
+import desktopBoostBackground from '../../images/bg-boost-desktop.svg'
+import sprite from '../../sprite.svg'
 
 const StyledFooter = styled.footer`
   display: flex;
@@ -111,6 +111,7 @@ const StyledBottomSide = styled.div`
   @media screen and (min-width: 560px) {
     .links-container {
       flex-direction: row;
+      align-items: flex-start;
     }
   }
   @media screen and (min-width: 960px) {

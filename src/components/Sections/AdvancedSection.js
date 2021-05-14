@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import sprite from './sprite.svg'
+import sprite from '../../sprite.svg'
 
 const StyledAdvancedSection = styled.section`
   background-color: hsl(0, 0%, 95%);

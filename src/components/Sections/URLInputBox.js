@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import formMobileBackground from './images/bg-shorten-mobile.svg'
-import formDesktopBackground from './images/bg-shorten-desktop.svg'
+import formMobileBackground from '../../images/bg-shorten-mobile.svg'
+import formDesktopBackground from '../../images/bg-shorten-desktop.svg'
 
 const StyledFormContainer = styled.section`
   margin: 0 auto;
