@@ -13,7 +13,7 @@ const StyledNav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  @media screen and (min-width: 960px) {
+  @media screen and (min-width: 780px) {
     margin: 2em auto 0 auto;
   }
 `

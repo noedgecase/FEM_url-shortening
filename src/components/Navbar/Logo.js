@@ -6,6 +6,10 @@ const StyledLogo = styled.svg`
   fill: #232127;
   width: 6em;
   height: 3em;
+  @media screen and (min-width: 780px) {
+    width: 10em;
+    height: 3.5em;
+  }
 `
 
 const Logo = () => {

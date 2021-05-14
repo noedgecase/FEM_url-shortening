@@ -57,12 +57,12 @@ const StyledURLInputForm = styled.form`
     padding: 0.8em;
     margin: 0.5em 0 0 0;
     border-radius: 0.4em;
-    transition: transform 300ms;
+    transition: transform 300ms, background-color 300ms;
     &:hover {
       cursor: pointer;
       background-color: hsl(180, 72%, 80%);
       transform: scale(1.05, 1.05);
-      transition: transform 100ms;
+      transition: transform 100ms, background-color 300ms;
     }
   }
   @media screen and (min-width: 780px) {
