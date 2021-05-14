@@ -4,7 +4,9 @@ import styled from 'styled-components'
 import working from './images/illustration-working.svg'
 
 const StyledSection = styled.section`
-  width: clamp(20em, 100%, 40em);
+  position: relative;
+  height: clamp(35em, 70vw, 50em);
+  width: clamp(20em, 100%, 140em);
   margin: 0 auto;
   padding: 1em;
   display: flex;
@@ -12,40 +14,33 @@ const StyledSection = styled.section`
   align-items: center;
   position: relative;
   overflow: hidden;
-  @media screen and (min-width: 620px) {
-    flex-direction: row-reverse;
-    width: clamp(45em, 100%, 150em);
+  @media screen and (min-width: 520px) {
+    height: clamp(20em, 50vw, 40em);
   }
 `
 
 const StyledImageContainer = styled.div`
   .working {
-    position: relative;
+    position: absolute;
     right: -5em;
+    top: 0;
     display: flex;
-    width: clamp(380px, 20vw, 1600px);
+    width: clamp(380px, 70vw, 1000px);
+    height: auto;
     user-select: none;
     pointer-events: none;
     margin: 0;
   }
-  @media screen and (min-width: 370px) {
+  @media screen and (min-width: 520px) {
     .working {
-      width: clamp(350px, 50vw, 800px);
-      height: auto;
-      right: 0;
-    }
-  }
-  @media screen and (min-width: 620px) {
-    .working {
-      width: clamp(420px, 50vw, 800px);
-      height: auto;
-      right: -5vw;
+      right: -10em;
     }
   }
 `
 
 const StyledBodyContainer = styled.div`
-  margin: 0 0 5em 0;
+  position: absolute;
+  top: 15em;
   min-width: 400px;
   display: flex;
   flex-direction: column;
@@ -54,18 +49,19 @@ const StyledBodyContainer = styled.div`
   h1 {
     color: hsl(260, 8%, 14%);
     font-weight: 700;
+    line-height: 1.2;
     text-align: center;
-    font-size: clamp(2rem, 8vw, 3rem);
-    margin: 0.5em auto;
+    font-size: clamp(2.3rem, 6vw, 5rem);
+    margin: 1em auto 0.5em auto;
     width: 15ch;
   }
   p {
-    font-size: clamp(0.8rem, 3vw, 1.2rem);
+    font-size: clamp(0.8rem, 2vw, 1.2rem);
     font-weight: 500;
     color: hsl(257, 7%, 63%);
     text-align: center;
-    width: clamp(30ch, 80%, 50ch);
-    padding: 1em;
+    width: clamp(30ch, 60%, 40ch);
+    /* padding: 1em; */
     margin: 0 auto;
   }
   button {
@@ -87,24 +83,23 @@ const StyledBodyContainer = styled.div`
     }
   }
 
-  @media screen and (min-width: 620px) {
-    justify-content: left;
-    align-items: flex-start;
-
+  @media screen and (min-width: 520px) {
+    padding: 0 5vw;
+    width: 50%;
+    top: 4vw;
+    left: 0;
     h1 {
-      font-size: clamp(2rem, 6vw, 5rem);
-      line-height: 1.2;
       text-align: left;
-      margin: 1em auto 0.5em 2em;
+      margin: 0 0 1rem 0;
     }
     p {
       text-align: left;
-      width: clamp(25ch, 75%, 40ch);
-      padding: 0;
-      margin: 0 0 0 8em;
+      margin: 0 0 2rem 0;
+      width: clamp(30ch, 80%, 80ch);
     }
     button {
-      margin: 1.5em 0 0 8em;
+      width: 14em;
+      margin: 0;
     }
   }
 `
