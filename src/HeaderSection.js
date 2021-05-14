@@ -28,6 +28,13 @@ const StyledImageContainer = styled.div`
     pointer-events: none;
     margin: 0;
   }
+  @media screen and (min-width: 370px) {
+    .working {
+      width: clamp(350px, 50vw, 800px);
+      height: auto;
+      right: 0;
+    }
+  }
   @media screen and (min-width: 620px) {
     .working {
       width: clamp(420px, 50vw, 800px);
@@ -38,6 +45,7 @@ const StyledImageContainer = styled.div`
 `
 
 const StyledBodyContainer = styled.div`
+  margin: 0 0 5em 0;
   min-width: 400px;
   display: flex;
   flex-direction: column;
@@ -52,7 +60,7 @@ const StyledBodyContainer = styled.div`
     width: 15ch;
   }
   p {
-    font-size: clamp(0.8rem, 5vw, 1rem);
+    font-size: clamp(0.8rem, 3vw, 1.2rem);
     font-weight: 500;
     color: hsl(257, 7%, 63%);
     text-align: center;
@@ -84,19 +92,19 @@ const StyledBodyContainer = styled.div`
     align-items: flex-start;
 
     h1 {
-      font-size: clamp(2rem, 8vw, 3rem);
+      font-size: clamp(2rem, 6vw, 5rem);
       line-height: 1.2;
       text-align: left;
-      margin: 1em auto 0.5em 3em;
+      margin: 1em auto 0.5em 2em;
     }
     p {
       text-align: left;
-      width: clamp(30ch, 80%, 40ch);
+      width: clamp(25ch, 75%, 40ch);
       padding: 0;
-      margin: 0;
+      margin: 0 0 0 8em;
     }
     button {
-      margin: 1.5em 0;
+      margin: 1.5em 0 0 8em;
     }
   }
 `
