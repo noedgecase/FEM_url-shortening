@@ -2,11 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 import Navbar from './components/Navbar/Navbar'
 import HeaderSection from './components/Sections/HeaderSection'
-import URLInputBox from './components/Sections/URLInputBox'
 import AdvanedSection from './components/Sections/AdvancedSection'
 import Footer from './components/Footer/Footer'
 
-const StyledApp = styled.div`
+const StyledApp = styled.main`
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  max-width: 2400px;
+  margin: 0 auto;
   padding: 0;
 `
 
@@ -15,7 +18,6 @@ const App = () => {
     <StyledApp>
       <Navbar />
       <HeaderSection />
-      <URLInputBox />
       <AdvanedSection />
       <Footer />
     </StyledApp>

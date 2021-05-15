@@ -87,8 +87,10 @@ const StyledBottomSide = styled.div`
           list-style: none;
           margin: 0.2em 0;
           color: hsl(257, 7%, 63%);
+          transition: color 200ms;
           &:hover {
             color: hsl(180, 66%, 49%);
+            transition: color 100ms;
           }
         }
       }
@@ -103,8 +105,10 @@ const StyledBottomSide = styled.div`
       width: 20px;
       height: 20px;
       cursor: pointer;
+      transition: fill 200ms;
       &:hover {
         fill: hsl(180, 66%, 49%);
+        transition: fill 100ms;
       }
     }
   }

@@ -6,13 +6,6 @@
   padding: 0;
 }
 
-body {
-  font-family: 'Poppins', sans-serif;
-  overflow-x: hidden;
-  max-width: 2400px;
-  margin: 0 auto;
-}
-
 @media screen and (min-width: 960px) {
   * {
     font-size: 18px;

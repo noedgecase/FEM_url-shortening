@@ -21,9 +21,11 @@ const StyledUl = styled.ul`
     font-weight: 500;
     display: inline;
     margin: 0 1em;
+    transition: color 200ms;
     &:hover {
       cursor: pointer;
       color: hsl(255, 11%, 22%);
+      transition: color 200ms;
     }
   }
 `
@@ -36,11 +38,13 @@ const StyledLogin = styled.div`
   align-items: center;
   justify-content: center;
   a {
+    transition: color 200ms;
     text-decoration: none;
     font-weight: 500;
     color: hsl(257, 7%, 63%);
     &:hover {
       color: hsl(255, 11%, 22%);
+      transition: color 200ms;
     }
   }
   button {
