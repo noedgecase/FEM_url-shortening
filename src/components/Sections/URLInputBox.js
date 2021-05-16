@@ -276,6 +276,11 @@ const URLInputForm = () => {
     console.log(error)
   }
 
+  const succsesfulCall = (data) => {
+    setLongLink(linkInput)
+    setNewLink(data.result.full_short_link2)
+  }
+
   ////////// API fetch //////////
   const shortenLink = async () => {
     if (linkInput.length === 0) {
@@ -292,16 +297,13 @@ const URLInputForm = () => {
           }
         )
         const data = await response.json()
-        data.result
-          ? setNewLink(data.result.full_short_link2)
-          : errorCheck(data.error_code)
+        data.result ? succsesfulCall(data) : errorCheck(data.error_code)
         // newLink = setNewLink(
         //   data.result?.full_short_link2 || errorCheck(data.error_code)
         // )
       } catch (error) {
         console.error(error)
       }
-      setLongLink(linkInput)
       setLinkInput('')
       setFetching(false)
     }
