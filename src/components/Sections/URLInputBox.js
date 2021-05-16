@@ -13,8 +13,8 @@ const StyledContainer = styled.section`
 
   .visible {
     opacity: 1 !important;
-    transition: opacity 350ms ease-in-out, min-height 300ms ease-in-out,
-      max-height 300ms ease-in-out;
+    transition: opacity 350ms ease-in-out, min-height 400ms ease-in-out,
+      max-height 400ms ease-in-out;
     max-height: 28px !important;
     min-height: 28px !important;
   }
@@ -109,8 +109,8 @@ const StyledURLInputForm = styled.div`
     max-height: 0px;
     min-height: 0px;
     opacity: 0;
-    transition: opacity 350ms ease-in-out, min-height 300ms ease-in-out,
-      max-height 300ms ease-in-out;
+    transition: opacity 350ms ease-in-out, min-height 400ms ease-in-out,
+      max-height 400ms ease-in-out;
     user-select: none;
   }
   .loading-animation {
@@ -143,8 +143,8 @@ const StyledURLInputForm = styled.div`
     #error-message {
       position: absolute;
       bottom: -32px;
-      transition: opacity 350ms ease-in-out, min-height 300ms ease-in-out,
-        max-height 300ms ease-in-out;
+      transition: opacity 350ms ease-in-out, min-height 400ms ease-in-out,
+        max-height 400ms ease-in-out;
       min-height: 25px;
       max-height: 25px;
     }
@@ -197,7 +197,7 @@ const StyledGeneratedLink = styled.div`
     text-align: center;
     margin: 1em auto;
     flex: 2;
-    padding: 0 1em;
+    padding: 0 2em;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -245,9 +245,12 @@ const URLInputForm = () => {
   let [linkInput, setLinkInput] = useState('')
   let [newLink, setNewLink] = useState('')
   const [longLink, setLongLink] = useState('')
-  const [emptyInput, setEmptyInput] = useState(false)
+  const [displayError, setDisplayError] = useState(false)
   const [fetching, setFetching] = useState(false)
   const [copied, setCopied] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
+  // temporary
+  const [showDiv, setShowDiv] = useState(false)
 
   const updateInput = (e) => {
     setLinkInput(e.target.value)
@@ -265,29 +268,46 @@ const URLInputForm = () => {
     }, 3000)
   }
 
-  const emptyInputShort = () => {
-    setEmptyInput(true)
+  const showError = () => {
+    setDisplayError(true)
     setTimeout(function () {
-      setEmptyInput(false)
+      setDisplayError(false)
     }, 3000)
   }
 
   const errorCheck = (error) => {
-    console.log(error)
+    if (error) console.log(`Error code no.${error}`)
+    setErrorMessage('Please add a link')
+
+    if (error === 2) {
+      setErrorMessage('Invalid URL Submitted')
+    }
+    if (error === 4) {
+      setErrorMessage('IP Adress blocked')
+    }
+    if (error === 6) {
+      setErrorMessage('Something went wrong. Try again')
+    }
+    if (error === 10) {
+      setErrorMessage('Disallowed link')
+    }
+
+    showError()
   }
 
-  const succsesfulCall = (data) => {
+  const succesfulCall = (data) => {
     setLongLink(linkInput)
     setNewLink(data.result.full_short_link2)
+    setShowDiv(true)
   }
 
   ////////// API fetch //////////
   const shortenLink = async () => {
     if (linkInput.length === 0) {
-      emptyInputShort()
+      setErrorMessage('Please add a link')
+      errorCheck()
     } else {
       setFetching(true)
-      setEmptyInput(false)
       try {
         const response = await fetch(
           `https://api.shrtco.de/v2/shorten?url=${linkInput}`,
@@ -297,12 +317,9 @@ const URLInputForm = () => {
           }
         )
         const data = await response.json()
-        data.result ? succsesfulCall(data) : errorCheck(data.error_code)
-        // newLink = setNewLink(
-        //   data.result?.full_short_link2 || errorCheck(data.error_code)
-        // )
+        data.result ? succesfulCall(data) : errorCheck(data.error_code)
       } catch (error) {
-        console.error(error)
+        console.log(error)
       }
       setLinkInput('')
       setFetching(false)
@@ -312,7 +329,7 @@ const URLInputForm = () => {
 
   return (
     <StyledContainer>
-      <StyledInputBox className={emptyInput ? 'red-border' : null}>
+      <StyledInputBox className={displayError ? 'red-border' : null}>
         <StyledURLInputForm>
           <input
             type='text'
@@ -323,8 +340,8 @@ const URLInputForm = () => {
             placeholder='Shorten a link here...'
             className={fetching ? 'unclickable' : null}
           />
-          <h4 id='error-message' className={emptyInput ? 'visible' : null}>
-            Please add a link
+          <h4 id='error-message' className={displayError ? 'visible' : null}>
+            {errorMessage}
           </h4>
           <button
             onClick={shortenLink}
@@ -340,18 +357,20 @@ const URLInputForm = () => {
           </button>
         </StyledURLInputForm>
       </StyledInputBox>
-      <StyledGeneratedLink className=''>
-        <h3 className='initial-link'>{longLink}</h3>
-        <div className='separator'></div>
-        <div className='link-button'>
-          <h3 className='new-link' id='generated-link'>
-            {newLink}
-          </h3>
-          <button onClick={copyClick} className={copied ? 'copied' : null}>
-            {copied ? 'Copied!' : 'Copy'}
-          </button>
-        </div>
-      </StyledGeneratedLink>
+      {showDiv ? (
+        <StyledGeneratedLink className=''>
+          <h3 className='initial-link'>{longLink}</h3>
+          <div className='separator'></div>
+          <div className='link-button'>
+            <h3 className='new-link' id='generated-link'>
+              {newLink}
+            </h3>
+            <button onClick={copyClick} className={copied ? 'copied' : null}>
+              {copied ? 'Copied!' : 'Copy'}
+            </button>
+          </div>
+        </StyledGeneratedLink>
+      ) : null}
     </StyledContainer>
   )
 }
