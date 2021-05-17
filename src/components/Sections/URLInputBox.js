@@ -224,10 +224,13 @@ const StyledGeneratedLink = styled.div`
   @media screen and (min-width: 780px) {
     width: clamp(730px, 70%, 90em);
     flex-direction: row;
-    padding: 1em;
+    padding: 0.8em 1em;
     button {
       margin: 0 1em;
       width: clamp(8em, 90%, 10em);
+    }
+    .new-link {
+      margin: 0 1em;
     }
     .separator {
       display: none;
@@ -237,6 +240,7 @@ const StyledGeneratedLink = styled.div`
     }
     .initial-link {
       text-align: left;
+      margin: 0;
     }
   }
 `
@@ -249,17 +253,10 @@ const URLInputForm = () => {
   const [fetching, setFetching] = useState(false)
   const [copied, setCopied] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
-  // temporary
-  const [showDiv, setShowDiv] = useState(false)
 
   const updateInput = (e) => {
     setLinkInput(e.target.value)
   }
-
-  // trebuie timeout
-  // const emptyInputAction = () =>{
-  //   setEmptyInput(true)
-  // }
 
   const copyClick = () => {
     setCopied(true)
@@ -268,44 +265,43 @@ const URLInputForm = () => {
     }, 3000)
   }
 
+  // render error message
   const showError = () => {
     setDisplayError(true)
     setTimeout(function () {
       setDisplayError(false)
-    }, 3000)
+    }, 2000)
   }
 
   const errorCheck = (error) => {
-    if (error) console.log(`Error code no.${error}`)
-    setErrorMessage('Please add a link')
+    if (error) console.log(error.error)
 
-    if (error === 2) {
+    if (error.error_code === 2) {
       setErrorMessage('Invalid URL Submitted')
     }
-    if (error === 4) {
+    if (error.error_code === 4) {
       setErrorMessage('IP Adress blocked')
     }
-    if (error === 6) {
+    if (error.error_code === 6) {
       setErrorMessage('Something went wrong. Try again')
     }
-    if (error === 10) {
+    if (error.error_code === 10) {
       setErrorMessage('Disallowed link')
     }
-
     showError()
   }
+  // /////////////////////////////////////
 
   const succesfulCall = (data) => {
     setLongLink(linkInput)
     setNewLink(data.result.full_short_link2)
-    setShowDiv(true)
   }
 
   ////////// API fetch //////////
   const shortenLink = async () => {
     if (linkInput.length === 0) {
       setErrorMessage('Please add a link')
-      errorCheck()
+      showError()
     } else {
       setFetching(true)
       try {
@@ -317,7 +313,7 @@ const URLInputForm = () => {
           }
         )
         const data = await response.json()
-        data.result ? succesfulCall(data) : errorCheck(data.error_code)
+        data.result ? succesfulCall(data) : errorCheck(data)
       } catch (error) {
         console.log(error)
       }
@@ -345,7 +341,9 @@ const URLInputForm = () => {
           </h4>
           <button
             onClick={shortenLink}
-            className={fetching ? 'unclickable-button' : null}
+            className={`${fetching ? 'unclickable-button' : null} ${
+              displayError ? 'unclickable-button' : null
+            }`}
             id='shorten-btn'>
             {fetching ? (
               <svg className='loading-animation'>
@@ -357,20 +355,18 @@ const URLInputForm = () => {
           </button>
         </StyledURLInputForm>
       </StyledInputBox>
-      {showDiv ? (
-        <StyledGeneratedLink className=''>
-          <h3 className='initial-link'>{longLink}</h3>
-          <div className='separator'></div>
-          <div className='link-button'>
-            <h3 className='new-link' id='generated-link'>
-              {newLink}
-            </h3>
-            <button onClick={copyClick} className={copied ? 'copied' : null}>
-              {copied ? 'Copied!' : 'Copy'}
-            </button>
-          </div>
-        </StyledGeneratedLink>
-      ) : null}
+      <StyledGeneratedLink className=''>
+        <h3 className='initial-link'>{longLink}</h3>
+        <div className='separator'></div>
+        <div className='link-button'>
+          <h3 className='new-link' id='generated-link'>
+            {newLink}
+          </h3>
+          <button onClick={copyClick} className={copied ? 'copied' : null}>
+            {copied ? 'Copied!' : 'Copy'}
+          </button>
+        </div>
+      </StyledGeneratedLink>
     </StyledContainer>
   )
 }
