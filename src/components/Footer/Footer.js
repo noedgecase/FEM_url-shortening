@@ -33,12 +33,13 @@ const StyledTopSide = styled.div`
     border: none;
     border-radius: 2em;
     background-color: hsl(180, 66%, 49%);
-    transition: transform 300ms, background-color 300ms;
+    transition: transform 300ms, background-color 300ms, box-shadow 300ms;
     &:hover {
       cursor: pointer;
       background-color: hsl(180, 72%, 80%);
       transform: scale(1.05, 1.05);
-      transition: transform 100ms, background-color 300ms;
+      transition: transform 100ms, background-color 300ms, box-shadow 100ms;
+      box-shadow: 0 5px 15px hsla(0, 0%, 0%, 0.3);
     }
   }
   @media screen and (min-width: 780px) {

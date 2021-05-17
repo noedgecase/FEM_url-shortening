@@ -58,12 +58,11 @@ const StyledLogin = styled.div`
     border-radius: 2em;
     min-width: 7em;
     background-color: hsl(180, 66%, 49%);
-    transition: transform 200ms, background-color 300ms;
+    transition: background-color 300ms;
     &:hover {
       cursor: pointer;
       background-color: hsl(180, 72%, 80%);
-      transform: scale(1.1, 1.1);
-      transition: transform 200ms, background-color 300ms;
+      transition: background-color 300ms;
     }
   }
 `

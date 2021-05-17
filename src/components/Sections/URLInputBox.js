@@ -99,7 +99,8 @@ const StyledURLInputForm = styled.div`
     &:hover {
       cursor: pointer;
       background-color: hsl(180, 72%, 80%);
-      transition: background-color 300ms;
+      box-shadow: 0 5px 15px hsla(0, 0%, 0%, 0.3);
+      transition: background-color 300ms, box-shadow 300ms;
     }
   }
   #error-message {
