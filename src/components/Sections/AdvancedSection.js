@@ -8,6 +8,7 @@ const StyledAdvancedSection = styled.section`
   display: flex;
   flex-direction: column;
   margin: 10em 0 0 0;
+  padding: 0 0 10em 0;
   @media screen and (min-width: 960px) {
     margin: 5em 0 0 0;
   }

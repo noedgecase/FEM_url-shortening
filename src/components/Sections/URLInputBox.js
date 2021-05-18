@@ -27,7 +27,7 @@ const StyledContainer = styled.section`
     pointer-events: none;
   }
   .unclickable-button {
-    background-color: hsl(180, 72%, 80%);
+    background-color: hsl(257, 7%, 63%);
     pointer-events: none;
   }
 `
@@ -56,6 +56,7 @@ const StyledInputBox = styled.div`
 `
 
 const StyledURLInputForm = styled.form`
+  user-select: none;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -76,6 +77,7 @@ const StyledURLInputForm = styled.form`
     border: 3px solid transparent;
     transition: border 200ms;
     ::placeholder {
+      user-select: none;
       color: hsl(257, 7%, 63%);
     }
   }
@@ -96,14 +98,21 @@ const StyledURLInputForm = styled.form`
     border-radius: 0.4em;
     transition: background-color 300ms, transform 200ms;
     pointer-events: all;
-    &:hover {
-      cursor: pointer;
-      background-color: hsl(180, 72%, 80%);
-      box-shadow: 0 5px 15px hsla(0, 0%, 0%, 0.3);
-      transition: background-color 300ms, box-shadow 300ms;
+    &:active {
+      background-color: hsl(257, 7%, 63%);
+    }
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        cursor: pointer;
+        background-color: hsl(180, 72%, 80%);
+        transform: scale(1.05, 1.05);
+        transition: transform 100ms, background-color 300ms, box-shadow 100ms;
+        box-shadow: 0 5px 15px hsla(0, 0%, 0%, 0.4);
+      }
     }
   }
   #error-message {
+    user-select: none;
     color: hsl(0, 87%, 67%);
     font-weight: 500;
     font-style: italic;
