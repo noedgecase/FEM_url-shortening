@@ -308,8 +308,8 @@ const URLInputBox = () => {
   ////////// API fetch //////////
   const shortenLink = async (e) => {
     e.preventDefault()
-    if (fetching) return false
-    if (displayError) return false
+    if (fetching) return false //to prevent requesting until response arrives
+    if (displayError) return false //to prevent sending request while error is displayed
     if (linkInput.length === 0) {
       setErrorMessage('Please add a link')
       showError()
