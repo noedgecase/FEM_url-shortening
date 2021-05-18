@@ -279,17 +279,21 @@ const URLInputBox = () => {
   const errorCheck = (error) => {
     if (error) console.log(error.error)
 
-    if (error.error_code === 2) {
-      setErrorMessage('Invalid URL Submitted')
-    }
-    if (error.error_code === 4) {
-      setErrorMessage('IP Adress blocked')
-    }
-    if (error.error_code === 6) {
-      setErrorMessage('Something went wrong. Try again')
-    }
-    if (error.error_code === 10) {
-      setErrorMessage('Disallowed link')
+    switch (error.error_code) {
+      case 2:
+        setErrorMessage('Invalid URL submitted')
+        break
+      case 4:
+        setErrorMessage('IP Adress blocked')
+        break
+      case 6:
+        setErrorMessage('Unknown Error')
+        break
+      case 10:
+        setErrorMessage('Disallowed link')
+        break
+      default:
+        setErrorMessage('Something went terribly wrong')
     }
     showError()
   }
@@ -304,6 +308,8 @@ const URLInputBox = () => {
   ////////// API fetch //////////
   const shortenLink = async (e) => {
     e.preventDefault()
+    if (fetching) return false
+    if (displayError) return false
     if (linkInput.length === 0) {
       setErrorMessage('Please add a link')
       showError()
@@ -327,7 +333,7 @@ const URLInputBox = () => {
     }
   }
 
-  ////////////////////////////////
+  ///////////////////////////////////
 
   return (
     <StyledContainer>
