@@ -55,7 +55,7 @@ const StyledInputBox = styled.div`
   }
 `
 
-const StyledURLInputForm = styled.div`
+const StyledURLInputForm = styled.form`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -246,7 +246,7 @@ const StyledGeneratedLink = styled.div`
   }
 `
 
-const URLInputForm = () => {
+const URLInputBox = () => {
   let [linkInput, setLinkInput] = useState('')
   let [newLink, setNewLink] = useState('')
   const [longLink, setLongLink] = useState('')
@@ -254,19 +254,21 @@ const URLInputForm = () => {
   const [fetching, setFetching] = useState(false)
   const [copied, setCopied] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
+  const [renderTab, setRenderTab] = useState(false)
 
   const updateInput = (e) => {
     setLinkInput(e.target.value)
   }
 
   const copyClick = () => {
+    navigator.clipboard.writeText(newLink)
     setCopied(true)
     setTimeout(function () {
       setCopied(false)
     }, 3000)
   }
 
-  // render error message
+  // render error message /////////
   const showError = () => {
     setDisplayError(true)
     setTimeout(function () {
@@ -294,12 +296,14 @@ const URLInputForm = () => {
   // /////////////////////////////////////
 
   const succesfulCall = (data) => {
+    setRenderTab(true)
     setLongLink(linkInput)
     setNewLink(data.result.full_short_link2)
   }
 
   ////////// API fetch //////////
-  const shortenLink = async () => {
+  const shortenLink = async (e) => {
+    e.preventDefault()
     if (linkInput.length === 0) {
       setErrorMessage('Please add a link')
       showError()
@@ -322,12 +326,13 @@ const URLInputForm = () => {
       setFetching(false)
     }
   }
+
   ////////////////////////////////
 
   return (
     <StyledContainer>
       <StyledInputBox className={displayError ? 'red-border' : null}>
-        <StyledURLInputForm>
+        <StyledURLInputForm onSubmit={shortenLink}>
           <input
             type='text'
             id='longUrl'
@@ -341,6 +346,7 @@ const URLInputForm = () => {
             {errorMessage}
           </h4>
           <button
+            type='button'
             onClick={shortenLink}
             className={`${fetching ? 'unclickable-button' : null} ${
               displayError ? 'unclickable-button' : null
@@ -356,20 +362,22 @@ const URLInputForm = () => {
           </button>
         </StyledURLInputForm>
       </StyledInputBox>
-      <StyledGeneratedLink className=''>
-        <h3 className='initial-link'>{longLink}</h3>
-        <div className='separator'></div>
-        <div className='link-button'>
-          <h3 className='new-link' id='generated-link'>
-            {newLink}
-          </h3>
-          <button onClick={copyClick} className={copied ? 'copied' : null}>
-            {copied ? 'Copied!' : 'Copy'}
-          </button>
-        </div>
-      </StyledGeneratedLink>
+      {renderTab ? (
+        <StyledGeneratedLink className=''>
+          <h3 className='initial-link'>{longLink}</h3>
+          <div className='separator'></div>
+          <div className='link-button'>
+            <h3 className='new-link' id='generated-link'>
+              {newLink}
+            </h3>
+            <button onClick={copyClick} className={copied ? 'copied' : null}>
+              {copied ? 'Copied!' : 'Copy'}
+            </button>
+          </div>
+        </StyledGeneratedLink>
+      ) : null}
     </StyledContainer>
   )
 }
 
-export default URLInputForm
+export default URLInputBox
