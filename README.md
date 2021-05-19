@@ -14,7 +14,6 @@ This is a solution to the [Shortly URL shortening API Challenge challenge on Fro
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
 ## Overview
 
@@ -54,6 +53,7 @@ Users should be able to:
 ### What I learned
 
 I enjoy styled components a lot, having the styling close to the functionality makes developing components a breeze, not to mention sass integration! The following block of code was how I initially layed out the 'logo' component in the navbar.
+
 From this:
 
 ```jsx
@@ -89,7 +89,7 @@ const Logo = () => {
 }
 ```
 
-No biggie, but it looks nicer.
+_No biggie, but it looks nicer._
 
 The 'hover state on mobile' article I'm mentioning in the [Useful resources](#useful-resources) comes down to this fix:
 
@@ -126,30 +126,30 @@ button {
 
 using ` @media (hover: hover) and (pointer: fine)` to differentiate the touchscreen capable devices from ordinary computers.
 
-- I learned how to use `async` functions and how to manage api calls.
+I learned how to use `async` functions and how to manage api calls.
   In case of a bad request, the error code will go through a switch statement and the message displayed under input text will comply with the API <a href="https://shrtco.de/docs/">table</a> of errors.
 
 I also cleared the unrealistic errors, for example, error 3 regarding the rate limit will never be displayed because the user won't be able to send a second request until the button animation stops, which takes longer than one second.
 
-Errors list:
+-Errors list:
 
 <!-- 1 	No URL specified ("url" parameter is empty) -->
 
-2 Invalid URL submitted
+*2 Invalid URL submitted
 
 <!-- 3 	Rate limit reached. Wait a second and try again -->
 
-4 IP-Address has been blocked because of violating our terms of service
+*4 IP-Address has been blocked because of violating our terms of service
 
 <!-- 5 	shrtcode code (slug) already taken/in use -->
 
-6 Unknown error
+*6 Unknown error
 
 <!-- 7 	No code specified ("code" parameter is empty) -->
 <!-- 8 	Invalid code submitted (code not found/there is no such short-link) -->
 <!-- 9 	Missing required parameters -->
 
-10 Trying to shorten a disallowed Link. More information on disallowed links
+*10 Trying to shorten a disallowed Link. More information on disallowed links
 
 ### Continued development
 
