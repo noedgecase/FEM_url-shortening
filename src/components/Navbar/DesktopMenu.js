@@ -71,9 +71,9 @@ const DesktopMenu = () => {
   return (
     <StyledNavContainer>
       <StyledUl>
-        <li>Features</li>
-        <li>Pricing</li>
-        <li>Resources</li>
+        <li tabIndex='1'> Features</li>
+        <li tabIndex='2'>Pricing</li>
+        <li tabIndex='3'>Resources</li>
       </StyledUl>
       <StyledLogin>
         <a href='#/'>Login</a>

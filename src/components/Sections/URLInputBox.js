@@ -350,6 +350,7 @@ const URLInputBox = () => {
         <StyledURLInputForm onSubmit={shortenLink}>
           <input
             type='text'
+            aria-label='initial link to shorten'
             id='longUrl'
             name='longUrl'
             onChange={updateInput}
