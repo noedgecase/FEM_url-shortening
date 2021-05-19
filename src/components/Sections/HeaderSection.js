@@ -86,6 +86,9 @@ const StyledBodyContainer = styled.div`
         transition: transform 100ms, background-color 300ms, box-shadow 100ms;
         box-shadow: 0 5px 15px hsla(0, 0%, 18%, 0.2);
       }
+      &:active {
+        background-color: hsl(257, 7%, 63%);
+      }
     }
   }
 

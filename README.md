@@ -16,9 +16,9 @@ This is a solution to the [Shortly URL shortening API Challenge challenge on Fro
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
-
 ## Overview
+
+In this challenge I made myself comfortable with styled components.
 
 ### The challenge
 
@@ -35,18 +35,10 @@ Users should be able to:
 
 ![](./desktop-preview.jpg)
 
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it.
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
-
 ### Links
 
 - Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [Add live site URL here](https://shortly-fem.netlify.app/)
 
 ## My process
 
@@ -55,28 +47,16 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
-- CSS Grid
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
 - [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+I enjoy styled components a lot, having the styling close to the functionality makes developing components a breeze, not to mention sass integration! The following block of code was how I initially layed out the 'logo' component in the navbar.
+From this:
 
 ```jsx
-import React from 'react'
-import sprite from '../../sprite.svg'
-
-const StyledLogo = styled.svg`
-  fill: #232127;
-  width: 6em;
-  height: 3em;
-`
-
 const Logo = () => {
   const logo = {
     fill: '#232127',
@@ -90,22 +70,16 @@ const Logo = () => {
     </svg>
   )
 }
-export default Logo
 ```
 
-to this
+To this:
 
 ```jsx
-import React from 'react'
-import styled from 'styled-components'
-import sprite from '../../sprite.svg'
-
 const StyledLogo = styled.svg`
   fill: #232127;
   width: 6em;
   height: 3em;
 `
-
 const Logo = () => {
   return (
     <StyledLogo>
@@ -113,37 +87,80 @@ const Logo = () => {
     </StyledLogo>
   )
 }
-
-export default Logo
 ```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+No biggie, but it looks nicer.
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+The 'hover state on mobile' article I'm mentioning in the [Useful resources](#useful-resources) comes down to this fix:
+
+```scss
+button {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: white;
+    border: none;
+    background-color: hsl(180, 66%, 49%);
+    padding: 0.4em 2em;
+    margin: 0.5em;
+    border-radius: 0.5em;
+    transition: background-color 300ms, transform 200ms;
+    width: clamp(8em, 80%, 25em);
+    height: 3em;
+
+    `&:active {
+      background-color: hsl(257, 7%, 63%);
+    }
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        cursor: pointer;
+        background-color: hsl(180, 72%, 80%);
+        transition: background-color 300ms;
+      }
+      &:active {
+        background-color: hsl(257, 7%, 63%);
+      }
+    }
+  }`
+```
+
+using ` @media (hover: hover) and (pointer: fine)` to differentiate the touchscreen capable devices from ordinary computers.
+
+- I learned how to use `async` functions and how to manage api calls.
+  In case of a bad request, the error code will go through a switch statement and the message displayed under input text will comply with the API <a href="https://shrtco.de/docs/">table</a> of errors.
+
+I also cleared the unrealistic errors, for example, error 3 regarding the rate limit will never be displayed because the user won't be able to send a second request until the button animation stops, which takes longer than one second.
+
+Errors list:
+
+<!-- 1 	No URL specified ("url" parameter is empty) -->
+
+2 Invalid URL submitted
+
+<!-- 3 	Rate limit reached. Wait a second and try again -->
+
+4 IP-Address has been blocked because of violating our terms of service
+
+<!-- 5 	shrtcode code (slug) already taken/in use -->
+
+6 Unknown error
+
+<!-- 7 	No code specified ("code" parameter is empty) -->
+<!-- 8 	Invalid code submitted (code not found/there is no such short-link) -->
+<!-- 9 	Missing required parameters -->
+
+10 Trying to shorten a disallowed Link. More information on disallowed links
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+Forwards, I want to continue exploring React by choosing it as the main tool for my following projects.
+I also want to adopt <a href="https://www.a11yproject.com/">a11y</a> practices and make every site more accesible.
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [solution to :hover on touchscreens](https://medium.com/@mezoistvan/finally-a-css-only-solution-to-hover-on-touchscreens-c498af39c31c) - This article guided me on how to deal with the problematic hover states on mobile.
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+- Frontend Mentor - [@popescudragos](https://www.frontendmentor.io/profile/popescudragos)
+- LinkedIn - [@ospop](https://www.linkedin.com/in/ospop/)

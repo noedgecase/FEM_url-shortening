@@ -109,6 +109,9 @@ const StyledURLInputForm = styled.form`
         transition: transform 100ms, background-color 300ms, box-shadow 100ms;
         box-shadow: 0 5px 15px hsla(0, 0%, 0%, 0.4);
       }
+      &:active {
+        background-color: hsl(257, 7%, 63%);
+      }
     }
   }
   #error-message {
@@ -189,10 +192,18 @@ const StyledGeneratedLink = styled.div`
     transition: background-color 300ms, transform 200ms;
     width: clamp(8em, 80%, 25em);
     height: 3em;
-    &:hover {
-      cursor: pointer;
-      background-color: hsl(180, 72%, 80%);
-      transition: background-color 300ms;
+    &:active {
+      background-color: hsl(257, 7%, 63%);
+    }
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        cursor: pointer;
+        background-color: hsl(180, 72%, 80%);
+        transition: background-color 300ms;
+      }
+      &:active {
+        background-color: hsl(257, 7%, 63%);
+      }
     }
   }
   .link-button {

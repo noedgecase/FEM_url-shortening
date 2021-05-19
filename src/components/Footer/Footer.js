@@ -46,6 +46,9 @@ const StyledTopSide = styled.div`
         transition: transform 100ms, background-color 300ms, box-shadow 100ms;
         box-shadow: 0 5px 15px hsla(0, 0%, 0%, 0.3);
       }
+      &:active {
+        background-color: hsl(257, 7%, 63%);
+      }
     }
   }
   @media screen and (min-width: 780px) {

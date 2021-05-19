@@ -64,6 +64,9 @@ const StyledLogin = styled.div`
       background-color: hsl(180, 72%, 80%);
       transition: background-color 300ms;
     }
+    &:active {
+      background-color: hsl(257, 7%, 63%);
+    }
   }
 `
 
