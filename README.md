@@ -36,8 +36,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://shortly-fem.netlify.app/)
+- Solution URL: [Frontend Mentor](https://your-solution-url.com)
+- Live Site URL: [Netlify](https://shortly-fem.netlify.app/)
 
 ## My process
 
@@ -115,7 +115,7 @@ Using ` @media (hover: hover) and (pointer: fine)` to differentiate the touchscr
 - I learned how to use `async` functions and how to manage api calls.
   In case of a bad request, the error code will go through a switch statement and the message displayed under input text will comply with the API <a href="https://shrtco.de/docs/">table</a> of errors.
 
-- One aspect I had to tackle with was how will the inserted link get passed into the api call. Some users including myself feel more natural hitting the Enter button after pasting a link. At first I though about having an event listener on the document and on every keyboard input, it will be checked if 'Enter' was pressed, if it was, then the input text will be attached to the api method. However, I don't like the idea of monitoring every keystroke so I modified the input container from a `<div>` to a `<form>`. Now the button in the form would to the job but, when submitting a form the page reloads, so now `e.preventDefault()` is mandatory in the call function.
+- One aspect I had to tackle with was how will the inserted link get passed into the api call. Some users including myself feel more natural hitting the Enter button after pasting a link. At first I though about having an event listener on the document and on every keyboard input, it will be checked if 'Enter' was pressed, if it was, then the input text will be attached to the api method. However, I don't like the idea of monitoring every keystroke so I modified the input container from a `<div>` to a `<form>`. Now the button in the form would to the job but, when submitting a form the page reloads, so now `e.preventDefault()` is mandatory in the API call function.
 
 - Ugly form buttons. `input[type='submit']` is unstylable so they have to be replaced with ordinary buttons.
 
@@ -136,12 +136,20 @@ Using ` @media (hover: hover) and (pointer: fine)` to differentiate the touchscr
 <!-- 9 	Missing required parameters -->
 *10 Trying to shorten a disallowed Link. More information on disallowed links
 
+
+| error  | meaning |
+| ------------- |:-------------:|
+| error_code:2    | Invalid URL submitted     |
+| error_code:4  | IP-Address has been blocked because of violating our terms of service     |
+| error_code:6  | Unknown error   |
+| error_code:10  | Trying to shorten a disallowed Link. More information on disallowed links   |
+
 ### Continued development
 
-Forwards, I want to continue exploring React by choosing it as the main tool for my following projects.
+Forwards, I want to continue using React on my following projects.
 I also want to adopt <a href="https://www.a11yproject.com/">a11y</a> practices and make every site more accesible.
 
-_Some of the stuff I wrote about seem trivial but I think that writing them down while working or after finishing the project helps me carry over to the next project all the stuff I learnt tackling the current one._
+_Some of the stuff I wrote about seem trivial but I think that writing them down while working helps me carry over to the next project all the stuff I learnt tackling the current one._
 
 ### Useful resources
 
