@@ -24,7 +24,7 @@ const StyledImageContainer = styled.div`
     right: -5em;
     top: 0;
     display: flex;
-    width: clamp(380px, 70vw, 1000px);
+    width: clamp(380px, 70vw, 800px);
     height: auto;
     user-select: none;
     pointer-events: none;
