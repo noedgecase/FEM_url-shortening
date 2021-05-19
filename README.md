@@ -17,7 +17,7 @@ This is a solution to the [Shortly URL shortening API Challenge challenge on Fro
 
 ## Overview
 
-In this challenge I made myself comfortable with styled components.
+In this challenge I continued practicing React and I also made myself comfortable with styled components.
 
 ### The challenge
 
@@ -91,24 +91,10 @@ const Logo = () => {
 
 _No biggie, but it looks nicer._
 
-The 'hover state on mobile' article I'm mentioning in the [Useful resources](#useful-resources) comes down to this fix:
+- The :hover state on mobile' article I'm mentioning in the [Useful resources](#useful-resources) comes down to this fix:
 
 ```scss
-button {
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: white;
-    border: none;
-    background-color: hsl(180, 66%, 49%);
-    padding: 0.4em 2em;
-    margin: 0.5em;
-    border-radius: 0.5em;
-    transition: background-color 300ms, transform 200ms;
-    width: clamp(8em, 80%, 25em);
-    height: 3em;
-
-    `&:active {
+&:active {
       background-color: hsl(257, 7%, 63%);
     }
     @media (hover: hover) and (pointer: fine) {
@@ -121,40 +107,41 @@ button {
         background-color: hsl(257, 7%, 63%);
       }
     }
-  }`
+  }
 ```
 
-using ` @media (hover: hover) and (pointer: fine)` to differentiate the touchscreen capable devices from ordinary computers.
+Using ` @media (hover: hover) and (pointer: fine)` to differentiate the touchscreen capable devices from ordinary computers. This prevents the button from being stuck with the hover effect when tapped and thus no confused user.
 
-I learned how to use `async` functions and how to manage api calls.
+- I learned how to use `async` functions and how to manage api calls.
   In case of a bad request, the error code will go through a switch statement and the message displayed under input text will comply with the API <a href="https://shrtco.de/docs/">table</a> of errors.
 
-I also cleared the unrealistic errors, for example, error 3 regarding the rate limit will never be displayed because the user won't be able to send a second request until the button animation stops, which takes longer than one second.
+- One aspect I had to tackle with was how will the inserted link get passed into the api call. Some users including myself feel more natural hitting the Enter button after pasting a link. At first I though about having an event listener on the document and on every keyboard input, it will be checked if 'Enter' was pressed, if it was, then the input text will be attached to the api method. However, I don't like the idea of monitoring every keystroke so I modified the input container from a `<div>` to a `<form>`. Now the button in the form would to the job but, when submitting a form the page reloads, so now `e.preventDefault()` is mandatory in the call function.
 
--Errors list:
+- Ugly form buttons. `input[type='submit']` is unstylable so they have to be replaced with ordinary buttons.
+
+![](./mobile-demo.jpg)
+
+- I also cleared the unrealistic errors, for example, error 3 regarding the rate limit will never be displayed because the user won't be able to send a second request until the button animation stops, which takes longer than one second.
+
+- Errors list:
 
 <!-- 1 	No URL specified ("url" parameter is empty) -->
-
 *2 Invalid URL submitted
-
 <!-- 3 	Rate limit reached. Wait a second and try again -->
-
 *4 IP-Address has been blocked because of violating our terms of service
-
 <!-- 5 	shrtcode code (slug) already taken/in use -->
-
 *6 Unknown error
-
 <!-- 7 	No code specified ("code" parameter is empty) -->
 <!-- 8 	Invalid code submitted (code not found/there is no such short-link) -->
 <!-- 9 	Missing required parameters -->
-
 *10 Trying to shorten a disallowed Link. More information on disallowed links
 
 ### Continued development
 
 Forwards, I want to continue exploring React by choosing it as the main tool for my following projects.
 I also want to adopt <a href="https://www.a11yproject.com/">a11y</a> practices and make every site more accesible.
+
+_Some of the stuff I wrote about seem trivial but I think that writing them down while working or after finishing the project helps me carry over to the next project all the stuff I learnt tackling the current one._
 
 ### Useful resources
 
