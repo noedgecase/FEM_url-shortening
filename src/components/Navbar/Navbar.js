@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import Burger from './Burger'
+import Burger from './Mobile/Burger'
 import Logo from './Logo'
-import MobileMenu from './MobileMenu'
-import DesktopMenu from './DesktopMenu'
+import MobileMenu from './Mobile/MobileMenu'
+import DesktopMenu from './Desktop/DesktopMenu'
 
 const StyledNav = styled.nav`
   width: clamp(5em, 90%, 1400px);
