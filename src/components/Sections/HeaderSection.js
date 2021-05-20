@@ -105,7 +105,7 @@ const StyledBodyContainer = styled.div`
     p {
       text-align: left;
       margin: 0 0 2rem 0;
-      width: clamp(30ch, 80%, 80ch);
+      width: clamp(30ch, 100%, 80ch);
     }
     button {
       margin: 0 auto 0 0;
