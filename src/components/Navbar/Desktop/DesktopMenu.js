@@ -36,7 +36,7 @@ const StyledLogin = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   a {
     transition: color 200ms;
     text-decoration: none;

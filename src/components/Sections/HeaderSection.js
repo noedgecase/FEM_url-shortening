@@ -5,8 +5,8 @@ import working from '../../images/illustration-working.svg'
 
 const StyledSection = styled.section`
   position: relative;
-  height: clamp(35em, 70vw, 50em);
-  width: clamp(20em, 100%, 1500px);
+  height: clamp(35em, 70vw, 45em);
+  width: clamp(20em, 100%, 1600px);
   margin: 0 auto;
   padding: 1em;
   display: flex;
@@ -93,7 +93,7 @@ const StyledBodyContainer = styled.div`
   }
 
   @media screen and (min-width: 520px) {
-    padding: 0 4.5vw;
+    padding: 0 7vw;
     width: 50%;
     top: 4vw;
     left: 0;

@@ -8,7 +8,8 @@ const StyledLogo = styled.svg`
   height: 3em;
   @media screen and (min-width: 780px) {
     width: 10em;
-    height: 3.5em;
+    height: 3em;
+    margin: 0 1em;
   }
 `
 

@@ -97,11 +97,18 @@ const StyledBottomSection = styled.div`
       &:nth-of-type(5) {
         top: 4em;
       }
-      .card__icon--frame {
-        position: relative;
-        top: -2.5em;
-        right: 30%;
+      h2 {
+        text-align: left;
+        padding: 0 1rem;
       }
+      p {
+        text-align: left;
+      }
+    }
+    .card__icon--frame {
+      position: relative;
+      top: -2.5em;
+      right: 30%;
     }
   }
 `

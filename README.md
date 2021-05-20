@@ -138,7 +138,9 @@ Using ` @media (hover: hover) and (pointer: fine)` to differentiate the touchscr
 
 <hr/>
 
-- <h2>  Image of the issue mentioned on Frontend Mentor </h2>
+- <h2>Issue mentioned on Frontend Mentor</h2>
+
+When importing through the svg sprite the illustration is rendered improperly, gradients are not visible and it seems like the layers are mixed up. I double checked the svg sprite because it was made in 'svg sprite generator', I looked for missing lines of code but it was right. I ended up importing the image individually through `img` tag. I don't know the cause of this, I commented out the lines with `use` so I can retry this anytime.
 
 <img src="svg-jpg.jpg" width="800"/>
 <hr/>

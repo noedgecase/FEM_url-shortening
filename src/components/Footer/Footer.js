@@ -81,27 +81,27 @@ const StyledBottomSide = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    .section {
-      margin: 1em 2em;
-      h3 {
+  }
+  .section {
+    margin: 1em 2em;
+    h3 {
+      text-align: center;
+      color: white;
+      margin: 0 auto 1em auto;
+      font-size: 1.2rem;
+    }
+    ul {
+      margin: 0.5em auto;
+      li {
+        cursor: pointer;
         text-align: center;
-        color: white;
-        margin: 0 auto 1em auto;
-        font-size: 1.2rem;
-      }
-      ul {
-        margin: 0.5em auto;
-        li {
-          cursor: pointer;
-          text-align: center;
-          list-style: none;
-          margin: 0.2em 0;
-          color: hsl(257, 7%, 63%);
-          transition: color 200ms;
-          &:hover {
-            color: hsl(180, 66%, 49%);
-            transition: color 100ms;
-          }
+        list-style: none;
+        margin: 0.2em 0;
+        color: hsl(257, 7%, 63%);
+        transition: color 200ms;
+        &:hover {
+          color: hsl(180, 66%, 49%);
+          transition: color 100ms;
         }
       }
     }
@@ -126,6 +126,18 @@ const StyledBottomSide = styled.div`
     .links-container {
       flex-direction: row;
       align-items: flex-start;
+    }
+    .section {
+      margin: 1em 2em;
+      h3 {
+        text-align: left;
+      }
+      ul {
+        margin: 0.5em auto;
+        li {
+          text-align: left;
+        }
+      }
     }
   }
   @media screen and (min-width: 960px) {
