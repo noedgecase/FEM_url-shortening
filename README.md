@@ -121,7 +121,7 @@ Using ` @media (hover: hover) and (pointer: fine)` to differentiate the touchscr
 
 ![](./mobile-demo.jpg)
 
-- I also cleared the unrealistic errors, for example, error 3 regarding the rate limit will never be displayed because the user won't be able to send a second request until the button animation stops, which takes longer than one second.
+- I also cleared the unrealistic errors, for example, error 3 regarding the rate limit will never be displayed because the user won't be able to send a second request until the button animation stops.
 
 #### Kept errors:
 
