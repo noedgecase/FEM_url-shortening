@@ -16,7 +16,7 @@ const StyledAdvancedSection = styled.section`
 
 const StyledTopSection = styled.div`
   width: clamp(10em, 90%, 30em);
-  margin: 0 auto;
+  margin: 3em auto 0 auto;
   h2 {
     color: hsl(257, 27%, 26%);
     text-align: center;
@@ -34,6 +34,11 @@ const StyledTopSection = styled.div`
     h2 {
       margin: 0.5em auto;
       font-size: 2rem;
+    }
+    p {
+      line-height: 1.5;
+      width: clamp(5ch, 60%, 60ch);
+      margin: 0 auto;
     }
   }
 `
