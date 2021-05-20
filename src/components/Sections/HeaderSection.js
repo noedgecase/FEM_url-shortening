@@ -14,7 +14,8 @@ const StyledSection = styled.section`
   align-items: center;
   position: relative;
   @media screen and (min-width: 520px) {
-    height: clamp(20em, 50vw, 40em);
+    height: clamp(20em, 50vw, 30em);
+    margin: 0 auto 5vw auto;
   }
 `
 

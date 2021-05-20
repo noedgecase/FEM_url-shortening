@@ -61,6 +61,9 @@ const StyledTopSide = styled.div`
       color: white;
       font-size: 2.3rem;
     }
+    button {
+      margin: 2em auto;
+    }
   }
 `
 

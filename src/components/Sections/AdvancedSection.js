@@ -4,7 +4,7 @@ import URLInputBox from './URLInputBox'
 import sprite from '../../sprite.svg'
 
 const StyledAdvancedSection = styled.section`
-  background-color: hsl(0, 0%, 95%);
+  background-color: #f0f1f6;
   display: flex;
   flex-direction: column;
   margin: 10em 0 0 0;
