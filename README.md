@@ -144,6 +144,7 @@ When importing through the svg sprite the illustration is rendered improperly, g
 
 <img src="svg-jpg.jpg" width="800"/>
 <hr/>
+
 ### Continued development
 
 I didn't find a proper way to list all the links that were passed through. I did find some articles about functional components and got advice on slack but I still couldn't manage to get them to work. I believe I could've split the input section in smaller components and pass props in order to generate a component for each link, inside the section. After spending hours with this task I decided to find an alternative of showing the links and move on with the challenge, sitting too much on an issue would just not help as much as noting it down and doing some research afterwards.
